@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
+import Axios from "axios";
+
 
 function App() {
   const [values, setValues] = useState();
@@ -15,8 +17,17 @@ function App() {
 
   );
 
+
+  /// ctrl + ; comenta e descomenta
+
   const handleClickButton = () => {
-    console.log(values)
+    Axios.post("http://localhost:3001/register", {
+      nome: values.nome,
+      preco: values.preco,
+      categoria: values.categoria,
+    }).then((response)=>{
+      console.log(response)
+    })
   };
 
   return <div className='app-container'>
@@ -26,7 +37,7 @@ function App() {
 
       <input
         type='text'
-        name='name'
+        name='nome'
         placeholder='Nome'
         className='register--input'
         onChange={handleChangeValues}
