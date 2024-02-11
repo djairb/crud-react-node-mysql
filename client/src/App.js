@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Axios from "axios";
 import Card from './componentes/cards/card';
@@ -13,9 +13,9 @@ function App() {
 
   console.log(listGames);
 
-  const handleChangeValues = value =>(
+  const handleChangeValues = value => (
 
-    setValues(prevValue=>({
+    setValues(prevValue => ({
       ...prevValue,
       [value.target.name]: value.target.value,
 
@@ -27,18 +27,18 @@ function App() {
   /// ctrl + ; comenta e descomenta
 
   const handleClickButton = () => {
-    Axios.post(apiUrl+"/register", {
+    Axios.post(apiUrl + "/register", {
       nome: values.nome,
       preco: values.preco,
       categoria: values.categoria,
-    }).then((response)=>{
+    }).then((response) => {
       console.log(response)
     })
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     ///frescuuuuraaaaaa
-    Axios.get("http://localhost:3001/getCards").then((response) =>{
+    Axios.get("http://localhost:3001/getCards").then((response) => {
       setListGames(response.data)
     });
 
@@ -48,7 +48,7 @@ function App() {
     <div className='app-container'>
       <div className='register--container'>
 
-        <h1>Scrim Shop</h1>
+        <h1>Scrim - Shop</h1>
 
         <input
           type='text'
@@ -76,29 +76,35 @@ function App() {
 
         <button
 
-        onClick={() => handleClickButton()}
-        
-        
+          onClick={() => handleClickButton()}
+
+
         >
           Cadastrar
         </button>
-          
-          
-          
+
+
+
 
       </div>
       {typeof listGames !== "undefined" &&
 
-      listGames.map((value) => {
+        listGames.map((value) => {
+          return (
 
-        return <Card></Card>
+            <Card
+              key={value.id}
+              listCard={listGames}
+              setListCard={setListGames}
+              id={value.id}
+              nome={value.nome}
+              preco={value.preco}
+              categoria={value.categoria}
+            ></Card>
+          )
+          //ta retornando 4 por causa do arraymap que faz tipo um for
+        })}
 
-        //ta retornando 4 por causa do arraymap que faz tipo um for
-
-
-
-      })};
-      
 
 
     </div>

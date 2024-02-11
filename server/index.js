@@ -44,9 +44,9 @@ app.get("/getCards", (req, res) =>{
 
 // crtrl + ;
 
-// app.get("/", (req, res) => {
-//     res.send("meu ovo")
-// })
+app.get("/", (req, res) => {
+    res.send("olá, Djair")
+})
 
 // app.get("/", (req, res)=>{
 
