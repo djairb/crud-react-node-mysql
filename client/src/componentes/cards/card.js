@@ -1,26 +1,48 @@
 import React from "react";
 import './card.css';
+import FormDialog from "../dialog/dialogForm";
 
 export default function Card(props) {
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickCard = () =>{
+        setOpen(true)
+    }
 
 
     return (
 
-        <div className="containerCard">
+        <>
+            <FormDialog
+                open={open}
+                setOpen={setOpen}
+                nome={props.nome}
+                preco={props.preco}
+                categoria={props.categoria}
+                listCard={props.listCard}
+                setListCard={props.setListCard}                
+            />
 
-            <h1>{props.nome}</h1>
+            <div className="containerCard" onClick={() =>
+            
+            handleClickCard()}>
 
-            <div className="containerDetalhes">
+                <h1>{props.nome}</h1>
 
-                <p>{props.categoria}</p>
+                <div className="containerDetalhes">
 
-                <p>•</p>
+                    <p>{props.categoria}</p>
 
-                <p>{props.preco}</p>
+                    <p>•</p>
 
-            </div>       
+                    <p>{props.preco}</p>
 
-        </div>
+                </div>       
+
+            </div>
+
+        </>
 
 
     ) 

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Axios from "axios";
 import Card from './componentes/cards/card';
-const apiUrl = "http://localhost:3001"
+import FormDialog from './componentes/dialog/dialogForm';
+
 
 
 
 function App() {
+
   const [values, setValues] = useState();
   //console.log(values);
   const [listGames, setListGames] = useState();
@@ -27,7 +29,9 @@ function App() {
   /// ctrl + ; comenta e descomenta
 
   const handleClickButton = () => {
-    Axios.post(apiUrl + "/register", {
+    //http://localhost:3001/register
+    //https://somosconexaosocial.org/appcrud/register
+    Axios.post("http://localhost:3001/register", {
       nome: values.nome,
       preco: values.preco,
       categoria: values.categoria,
@@ -37,7 +41,8 @@ function App() {
   };
 
   useEffect(() => {
-    ///frescuuuuraaaaaa
+    ///http://localhost:3001/getCards
+    //https://somosconexaosocial.org/appcrud/getCards
     Axios.get("http://localhost:3001/getCards").then((response) => {
       setListGames(response.data)
     });
@@ -101,6 +106,7 @@ function App() {
               preco={value.preco}
               categoria={value.categoria}
             ></Card>
+            
           )
           //ta retornando 4 por causa do arraymap que faz tipo um for
         })}
