@@ -35,6 +35,7 @@ export default function Card(props) {
             }>
 
                 <h1>{props.nome}</h1>
+                <h3>{props.id}</h3>
 
                 <div className="containerDetalhes">
 

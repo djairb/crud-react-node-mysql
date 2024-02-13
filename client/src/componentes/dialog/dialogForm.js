@@ -30,7 +30,10 @@ export default function FormDialog(props) {
     );
 
     const handleEditGame = () => {
-        Axios.put("http://localhost:3001/edit", {
+
+        ///http://localhost:3001/edit
+        //https://somosconexaosocial.org/appcrud/edit
+        Axios.put("https://somosconexaosocial.org/appcrud/edit", {
 
             //pega os valores que estao setados em editValues - que sao setados quando o cara altera no onchange
 

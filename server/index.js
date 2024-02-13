@@ -55,12 +55,12 @@ app.put("/edit", (req, res) =>{
     const {preco} = req.body;
     const {categoria} = req.body;
  
-    let SQL = "UPDATE games SET nome = ?, preco = ?, categoria = ? WHERE idgames = ?";
+    let SQL = "UPDATE games SET nome = ?, preco = ?, categoria = ? WHERE id = ?";
 
     db.query(SQL, [nome, preco, categoria, id], (err, result) =>{
 
         if(err) console.log(err);
-        else res.send(result);
+        else console.log(result);
 
 
     })
