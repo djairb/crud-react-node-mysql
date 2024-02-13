@@ -6,7 +6,9 @@ export default function Card(props) {
 
     const [open, setOpen] = React.useState(false);
 
-    const handleClickCard = () =>{
+    const handleClickCard = () => {
+
+        //abre o dialog, seta os valores automaticamente
         setOpen(true)
     }
 
@@ -21,12 +23,16 @@ export default function Card(props) {
                 preco={props.preco}
                 categoria={props.categoria}
                 listCard={props.listCard}
-                setListCard={props.setListCard}                
+                setListCard={props.setListCard}
+                id={props.id}
             />
 
             <div className="containerCard" onClick={() =>
-            
-            handleClickCard()}>
+
+                handleClickCard()
+
+
+            }>
 
                 <h1>{props.nome}</h1>
 
@@ -38,14 +44,14 @@ export default function Card(props) {
 
                     <p>{props.preco}</p>
 
-                </div>       
+                </div>
 
             </div>
 
         </>
 
 
-    ) 
+    )
 
 
 

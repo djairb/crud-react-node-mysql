@@ -10,10 +10,10 @@ import FormDialog from './componentes/dialog/dialogForm';
 function App() {
 
   const [values, setValues] = useState();
-  //console.log(values);
+  console.log(values);
   const [listGames, setListGames] = useState();
 
-  console.log(listGames);
+  
 
   const handleChangeValues = value => (
 
@@ -37,7 +37,9 @@ function App() {
       categoria: values.categoria,
     }).then((response) => {
       console.log(response)
+      
     })
+    document.location.reload()
   };
 
   useEffect(() => {
@@ -92,16 +94,17 @@ function App() {
 
 
       </div>
+      
       {typeof listGames !== "undefined" &&
-
+        
         listGames.map((value) => {
           return (
 
             <Card
-              key={value.id}
+              key={value.idgames}
               listCard={listGames}
               setListCard={setListGames}
-              id={value.id}
+              id={value.idgames}
               nome={value.nome}
               preco={value.preco}
               categoria={value.categoria}

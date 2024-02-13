@@ -46,6 +46,27 @@ app.get("/getCards", (req, res) =>{
 
 app.get("/", (req, res) => {
     res.send("olá, Djair")
+});
+
+app.put("/edit", (req, res) =>{
+
+    const {id} = req.body;
+    const {nome} = req.body;
+    const {preco} = req.body;
+    const {categoria} = req.body;
+ 
+    let SQL = "UPDATE games SET nome = ?, preco = ?, categoria = ? WHERE idgames = ?";
+
+    db.query(SQL, [nome, preco, categoria, id], (err, result) =>{
+
+        if(err) console.log(err);
+        else res.send(result);
+
+
+    })
+
+
+
 })
 
 // app.get("/", (req, res)=>{
