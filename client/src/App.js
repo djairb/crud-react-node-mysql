@@ -31,7 +31,7 @@ function App() {
   const handleClickButton = () => {
     //http://localhost:3001/register
     //https://somosconexaosocial.org/appcrud/register
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("https://somosconexaosocial.org/appcrud/register", {
       nome: values.nome,
       preco: values.preco,
       categoria: values.categoria,
@@ -45,7 +45,7 @@ function App() {
   useEffect(() => {
     ///http://localhost:3001/getCards
     //https://somosconexaosocial.org/appcrud/getCards
-    Axios.get("http://localhost:3001/getCards").then((response) => {
+    Axios.get("https://somosconexaosocial.org/appcrud/getCards").then((response) => {
       setListGames(response.data)
     });
 
