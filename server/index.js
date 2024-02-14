@@ -69,6 +69,23 @@ app.put("/edit", (req, res) =>{
 
 })
 
+app.delete("/delete/:id", (req, res) => {
+
+    const {id} = req.params;
+
+    let SQL  = "delete from games where id = ?";
+    db.query(SQL, [id], (err, result) =>{
+
+        if(err) console.log(err);
+        else res.send(result);
+
+
+    });
+
+
+
+});
+
 // app.get("/", (req, res)=>{
 
 //     let SQL = 'insert into games (nome, preco, categoria) values ("God of War", "120", "Romantico")';
