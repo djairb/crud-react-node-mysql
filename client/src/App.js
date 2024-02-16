@@ -48,6 +48,7 @@ function App() {
     Axios.get("https://somosconexaosocial.org/appcrud/getCards").then((response) => {
       setListGames(response.data)
     });
+    
 
   }, []);
 
