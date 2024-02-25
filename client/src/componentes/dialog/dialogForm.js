@@ -33,7 +33,7 @@ export default function FormDialog(props) {
 
         ///http://localhost:3001/edit
         //https://somosconexaosocial.org/appcrud/edit
-        Axios.put("https://somosconexaosocial.org/appcrud/edit", {
+        Axios.put("http://localhost:3001/edit", {
 
             //pega os valores que estao setados em editValues - que sao setados quando o cara altera no onchange
 
@@ -55,7 +55,7 @@ export default function FormDialog(props) {
     const handleDeleteGame = () =>{
         ///http://localhost:3001/delete/${editValues.id}
         //https://somosconexaosocial.org/appcrud/delete/${editValues.id}
-        Axios.delete(`https://somosconexaosocial.org/appcrud/delete/${editValues.id}`);
+        Axios.delete(`http://localhost:3001/delete/${editValues.id}`);
         handleClose();
         document.location.reload();
 

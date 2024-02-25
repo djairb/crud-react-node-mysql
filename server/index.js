@@ -8,7 +8,7 @@ const db = mysql.createPool({
     host:"localhost",
     user:"root",
     password:"Karolinne102",
-    database:"crudgames",
+    database:"excel",
 });
 
 app.use(cors());
@@ -85,6 +85,25 @@ app.delete("/delete/:id", (req, res) => {
 
 
 });
+
+app.get("/getUser", (req, res) =>{
+
+    let usuario = req.query.usuario ?? '';
+    let senha = req.query.senha ?? '';
+
+    let SQL= "SELECT * FROM usuarios WHERE usuario = ? and senha = ?";
+
+    db.query(SQL, [usuario, senha], (err, result) =>{
+
+        if (err) console.log(err);
+        else res.send(result);
+        //envia o numero da lista da chamada
+    })
+
+});
+
+
+
 
 // app.get("/", (req, res)=>{
 
